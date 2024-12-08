@@ -15,7 +15,7 @@ const UserEditForm = () => {
         name: initialUser?.name || '',
         email: initialUser?.email || '',
         address: initialUser?.address?.street || '',
-        profilePicture: null,
+        profilePicture: initialUser?.profilePicture || null,
     });
 
     const handleChange = (e) => {
@@ -24,7 +24,14 @@ const UserEditForm = () => {
     };
 
     const handleImageChange = (e) => {
-        setFormData({ ...formData, profilePicture: URL.createObjectURL(e.target.files[0]) });
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData({ ...formData, profilePicture: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = (e) => {
@@ -34,6 +41,7 @@ const UserEditForm = () => {
             name: formData.name,
             email: formData.email,
             address: { street: formData.address },
+            profilePicture: formData.profilePicture,
         };
         dispatch(updateUser(updatedUser));
         navigate('/');

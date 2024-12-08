@@ -4,7 +4,7 @@ const userSlice = createSlice({
     name: 'users',
     initialState: {
         users: [],
-        editedUsers: {},
+        editedUsers: JSON.parse(localStorage.getItem('editedUsers')) || {},
     },
     reducers: {
         setUsers: (state, action) => {
@@ -12,6 +12,7 @@ const userSlice = createSlice({
         },
         updateUser: (state, action) => {
             state.editedUsers[action.payload.id] = action.payload;
+            localStorage.setItem('editedUsers', JSON.stringify(state.editedUsers));
         },
     },
 });
