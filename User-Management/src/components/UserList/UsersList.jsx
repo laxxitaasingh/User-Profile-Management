@@ -28,14 +28,26 @@ const UsersList = () => {
             <h1 className="title">Users List</h1>
             <div className="card-grid">
                 {getMergedUsers().map((user) => (
-                    <div key={user.id} className="card">
-                        <h2 className="card-title">{user.name}</h2>
-                        <button
-                            onClick={() => navigate(`/edit/${user.id}`)}
-                            className="card-button"
-                        >
-                            Edit
-                        </button>
+                    <div
+                        key={user.id}
+                        className="card"
+                        onClick={() => navigate(`/edit/${user.id}`)}
+                    >
+                        <div className="card-data">
+                            {user.profilePicture && (
+                                <img
+                                    className="avatar"
+                                    src={user.profilePicture}
+                                    alt={`${user.name}`}
+                                />
+                            )}
+                            <div>
+                                <h4 className="card-title">{user.name}</h4>
+                                <p className="card-address">
+                                    {user.address.street}, {user.address.city}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

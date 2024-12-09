@@ -1,4 +1,4 @@
-/* Container styling */
+
 form {
     max-width: 600px;
     margin: 50px auto;
@@ -17,7 +17,6 @@ h1 {
     color: #333;
 }
 
-/* Form group */
 form div {
     margin-bottom: 15px;
     display: flex;
@@ -52,7 +51,7 @@ input[type="file"]:focus {
     outline: none;
 }
 
-/* Profile picture preview */
+
 img {
     display: block;
     margin: 10px 0;
