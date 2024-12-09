@@ -28,8 +28,7 @@ Build a simple user profile dashboard that allows users to view and update their
   - Store and retrieve edited user data.
 
 ### 4. **Show Edited Users**
-- Displays both:
-  - Original users from the API.
+- Displays :
   - Edited user details.
 
 ### 5. **Optional Bonus Feature**
