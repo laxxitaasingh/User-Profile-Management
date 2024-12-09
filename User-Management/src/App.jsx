@@ -4,6 +4,7 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import UsersList from './components/UserList/UsersList';
 import UserEditForm from './components/UserEditForm/UserEditForm';
+import './index.css';
 
 // Redux Slice for User State Management
 const userSlice = createSlice({

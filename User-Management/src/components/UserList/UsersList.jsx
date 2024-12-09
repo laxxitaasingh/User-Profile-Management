@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUsers } from '../../store/userSlice';
+import './UsersList.css';
 
 const UsersList = () => {
     const navigate = useNavigate();
@@ -23,16 +24,21 @@ const UsersList = () => {
     };
 
     return (
-        <div>
-            <h1>Users List</h1>
-            <ul>
+        <div className="container">
+            <h1 className="title">Users List</h1>
+            <div className="card-grid">
                 {getMergedUsers().map((user) => (
-                    <li key={user.id}>
-                        <span>{user.name}</span>
-                        <button onClick={() => navigate(`/edit/${user.id}`)}>Edit</button>
-                    </li>
+                    <div key={user.id} className="card">
+                        <h2 className="card-title">{user.name}</h2>
+                        <button
+                            onClick={() => navigate(`/edit/${user.id}`)}
+                            className="card-button"
+                        >
+                            Edit
+                        </button>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

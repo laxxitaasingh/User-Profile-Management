@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../../store/userSlice';
+import './UserEditForm.css';
 
 const UserEditForm = () => {
     const { id } = useParams();
@@ -85,7 +86,7 @@ const UserEditForm = () => {
                     <label>Profile Picture:</label>
                     <input type="file" onChange={handleImageChange} />
                 </div>
-                {formData.profilePicture && <img src={formData.profilePicture} alt="Profile" width="100" />}
+                {formData.profilePicture && <img src={formData.profilePicture} alt="Profile" />}
                 <button type="submit">Save</button>
             </form>
         </div>
